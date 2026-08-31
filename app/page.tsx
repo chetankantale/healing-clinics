@@ -251,7 +251,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="rounded-[32px] bg-slate-900 p-10 text-white shadow-glow">
-            <p className="uppercase tracking-[0.3em] text-gold">Latest insights</p>
+            <p className="uppercase tracking-[0.3em] text-gold">Latest insights.</p>
             <div className="mt-8 space-y-5">
               {blogs.map((post) => (
                 <Link key={post.href} href={post.href} className="block rounded-3xl border border-slate-800 bg-slate-950 p-6 transition hover:border-gold">
