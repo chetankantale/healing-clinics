@@ -3,11 +3,17 @@
 import { useMemo, useState } from 'react';
 import { galleryItems } from '@/lib/content';
 
-const categories = ['All', 'Clinic Gallery'];
+const categories = ['All', 'Clinic Gallery', 'Before & After Results'];
 
 export default function GalleryPage() {
   const [active, setActive] = useState('All');
-  const filtered = useMemo(() => (active === 'All' ? galleryItems : galleryItems.filter((item) => item.category === active)), [active]);
+  const filtered = useMemo(() => {
+    if (active !== 'All') {
+      return galleryItems.filter((item) => item.category === active);
+    }
+
+    return [...galleryItems].sort((firstItem, secondItem) => Number(secondItem.category === 'Clinic Gallery') - Number(firstItem.category === 'Clinic Gallery'));
+  }, [active]);
 
   return (
     <section className="bg-slate-50 py-20">
@@ -15,7 +21,7 @@ export default function GalleryPage() {
         <div className="mb-12 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-gold">Gallery</p>
           <h1 className="mt-4 text-4xl font-semibold text-slate-950 sm:text-5xl">Visual stories from our clinical treatments.</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600">Browse treatment results across acne, pigmentation, hair restoration, and laser therapies.</p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600">Browse our clinic, plus before-and-after treatment results across skin and hair concerns.</p>
         </div>
         <div className="mb-8 flex flex-wrap gap-3">
           {categories.map((category) => (

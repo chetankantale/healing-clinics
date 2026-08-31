@@ -11,16 +11,16 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!treatment) return {};
 
   return {
-    title: `${treatment.title} | Dermacare Elite`,
+    title: `${treatment.title} | Healing Clinic`,
     description: treatment.summary,
     openGraph: {
-      title: `${treatment.title} | Dermacare Elite`,
+      title: `${treatment.title} | Healing Clinic`,
       description: treatment.summary,
       url: `https://www.dermacareelite.com/treatments/${treatment.slug}`
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${treatment.title} | Dermacare Elite`,
+      title: `${treatment.title} | Healing Clinic`,
       description: treatment.summary
     }
   };
@@ -36,7 +36,15 @@ function TreatmentPage({ treatment }: { treatment: TreatmentItem }) {
             <h1 className="text-4xl font-semibold text-slate-950 sm:text-5xl">{treatment.title} designed for premium results.</h1>
             <p className="max-w-3xl text-base leading-8 text-slate-600">{treatment.overview}</p>
           </div>
-          <div className="rounded-[32px] bg-cover bg-center p-10 shadow-glow" style={{ minHeight: 420, backgroundImage: `url(${treatment.heroImage})` }} />
+          <div className="rounded-[32px] bg-slate-900 p-10 text-white shadow-glow">
+            <p className="text-sm uppercase tracking-[0.3em] text-gold">Personalized care</p>
+            <h2 className="mt-5 text-3xl font-semibold">What your plan can support</h2>
+            <ul className="mt-8 space-y-4">
+              {treatment.benefits.map((benefit) => (
+                <li key={benefit} className="border-b border-slate-700 pb-4 text-base leading-7 text-slate-200">{benefit}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">

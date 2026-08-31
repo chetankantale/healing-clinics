@@ -6,9 +6,9 @@ export default function AboutPage() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_0.65fr] lg:items-center">
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">About Dermacare Elite</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-gold">About Healing Clinic</p>
             <h1 className="text-4xl font-semibold text-slate-950 sm:text-5xl">A premium dermatology clinic built for exceptional patient results.</h1>
-            <p className="max-w-3xl text-base leading-8 text-slate-600">At Dermacare Elite, we combine clinical dermatology, aesthetic expertise, and a luxury care environment to provide transformative skin and hair solutions for discerning patients.</p>
+            <p className="max-w-3xl text-base leading-8 text-slate-600">At Healing Clinic, we combine clinical dermatology, aesthetic expertise, and a luxury care environment to provide transformative skin and hair solutions for discerning patients.</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-3xl bg-white p-6 shadow-soft">
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Vision</p>

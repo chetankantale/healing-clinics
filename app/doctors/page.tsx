@@ -16,7 +16,7 @@ export default function DoctorsPage() {
             <div className="mb-6 aspect-[4/5] overflow-hidden rounded-[28px] bg-[url('/images/doctors/dr-supriya.jpg')] bg-cover bg-center" />
             <p className="text-sm uppercase tracking-[0.3em] text-gold">Dr. Supriya Ghodke</p>
             <h2 className="mt-4 text-2xl font-semibold text-slate-950">Lead dermatologist</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">18 years of experience in advanced dermatology, facial aesthetics, clinical cosmetology, and hair restoration care.</p>
+            <p className="mt-4 text-sm leading-7 text-slate-600">11 years of experience in advanced dermatology, facial aesthetics, clinical cosmetology, and hair restoration care.</p>
             <div className="mt-6 space-y-3 text-sm text-slate-600">
               <p>Qualification: B.A.M.S, PGDFC, FFAC</p>
               <p>Focus: Facial aesthetics and clinical cosmetology</p>
@@ -24,23 +24,13 @@ export default function DoctorsPage() {
             </div>
           </div>
           <div className="rounded-[32px] bg-white p-8 shadow-soft">
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">Dr. Sienna Cole, DO</p>
+            <div className="mb-6 aspect-[4/5] overflow-hidden rounded-[28px] bg-[url('/images/doctors/dr-virendra.jpeg')] bg-cover bg-center" />
+            <p className="text-sm uppercase tracking-[0.3em] text-gold">Dr. Virendra Ghodke, MD</p>
             <h2 className="mt-4 text-2xl font-semibold text-slate-950">Medical aesthetician partner</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">Specializes in advanced laser therapy, skin rejuvenation, and personalized treatment protocols.</p>
             <div className="mt-6 space-y-3 text-sm text-slate-600">
-              <p>Certification: Cosmetic Dermatology Fellowship</p>
-              <p>Awards: Best Skin Care Innovation</p>
+              <p>Certification: Proctology and Panchakarma</p>
               <p>Expertise: Laser therapies, peels, skin brightening</p>
-            </div>
-          </div>
-          <div className="rounded-[32px] bg-white p-8 shadow-soft">
-            <p className="text-sm uppercase tracking-[0.3em] text-gold">Dr. Noah Bennett, MD</p>
-            <h2 className="mt-4 text-2xl font-semibold text-slate-950">Hair restoration specialist</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">Focuses on restorative hair therapies, transplant planning, and regenerative solutions.</p>
-            <div className="mt-6 space-y-3 text-sm text-slate-600">
-              <p>Certification: Hair Restoration Surgery</p>
-              <p>Awards: Clinic Excellence in Hair Care</p>
-              <p>Expertise: Hair transplant, PRP, scalp health</p>
             </div>
           </div>
         </div>

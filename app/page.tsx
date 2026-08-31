@@ -2,19 +2,20 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { BookOpen, CheckCircle2, HeartHandshake, Sparkles, Star, TrendingUp, Stethoscope } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { CheckCircle2, HeartHandshake, Sparkles, Star, TrendingUp } from 'lucide-react';
 
 const stats = [
-  { label: 'Patients Treated', value: '9,500+' },
-  { label: 'Years Experience', value: '18+' },
-  { label: 'Procedures Completed', value: '12,000+' },
+  { label: 'Patients Treated', value: '3000+' },
+  { label: 'Years Experience', value: '10+' },
+  { label: 'Procedures Completed', value: '6,500+' },
   { label: 'Google Rating', value: '4.9/5' }
 ];
 
 const treatments = [
   'Acne Treatment',
   'Pigmentation Treatment',
-  'Hair Transplant',
+  'Hair Growth Treatment',
   'PRP Therapy',
   'Laser Hair Removal',
   'Anti Aging',
@@ -30,10 +31,12 @@ const features = [
 ];
 
 const previewImages = [
-  { label: 'Acne Renewal', src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80' },
-  { label: 'Glow Treatment', src: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80' },
-  { label: 'Hair Recovery', src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80' }
+  { label: 'Acne Renewal', src: '/images/home/acne-renewal.png' },
+  { label: 'Glow Treatment', src: '/images/home/glow-treatment.png' },
+  { label: 'Hair Recovery', src: '/images/home/hair-recovery.png' }
 ];
+
+const heroImages = ['/images/hero/hero-1.jpg', '/images/hero/hero-2.jpg', '/images/hero/hero-3.jpg'];
 
 const faqs = [
   { question: 'How do I book a consultation?', answer: 'Schedule online, call our team, or start a WhatsApp consultation to receive a tailored treatment plan.' },
@@ -48,57 +51,65 @@ const blogs = [
 ];
 
 export default function HomePage() {
+  const [activeHero, setActiveHero] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHero((current) => (current + 1) % heroImages.length);
+    }, 5500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-slate-50 text-slate-900">
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div className="space-y-8">
-              <span className="inline-flex items-center rounded-full bg-gold/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-gold">
-                Premium dermatology care
-              </span>
-              <div className="space-y-6">
-                <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                  Revitalize your skin and hair with tailored luxury treatments.
-                </h1>
-                <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  Healing Clinic combines medical expertise, advanced dermatology, and personalized aesthetic care for healthier, confident skin and restored beauty.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/book-appointment" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-slate-800">
-                  Book Appointment
-                </Link>
-                <Link href="https://wa.me/917447681111" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-gold hover:text-slate-900">
-                  WhatsApp Consultation
-                </Link>
-              </div>
+      <section className="relative isolate min-h-[580px] overflow-hidden py-20 sm:min-h-[640px]">
+        <div className="absolute inset-0 -z-20">
+          {heroImages.map((image, index) => (
+            <motion.div
+              key={image}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${image})` }}
+              initial={false}
+              animate={{ opacity: activeHero === index ? 1 : 0, scale: activeHero === index ? 1 : 1.04 }}
+              transition={{ duration: 1.1, ease: 'easeInOut' }}
+            />
+          ))}
+        </div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white/95 via-white/70 to-white/5" />
+        <div className="mx-auto flex min-h-[420px] max-w-7xl flex-col justify-center px-6">
+          <div className="max-w-2xl space-y-8">
+            <span className="inline-flex items-center rounded-full border border-gold/30 bg-white/75 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-gold backdrop-blur-sm">
+              Premium dermatology care
+            </span>
+            <div className="space-y-6">
+              <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl">
+                Revitalize your skin and hair with tailored luxury treatments.
+              </h1>
+              <p className="max-w-xl text-base leading-8 text-slate-700 sm:text-lg">
+                Healing Clinic combines medical expertise, advanced dermatology, and personalized aesthetic care for healthier, confident skin and restored beauty.
+              </p>
             </div>
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-              <div className="absolute -left-10 top-4 h-24 w-24 rounded-full bg-gold/10 blur-3xl" />
-              <div className="space-y-6">
-                <div className="rounded-3xl bg-slate-800 px-6 py-7 text-white shadow-lg">
-                  <p className="text-sm uppercase tracking-[0.35em] text-slate-200">Signature consultation</p>
-                  <p className="mt-4 text-3xl font-semibold">Luxury skin assessment</p>
-                </div>
-                <div className="grid gap-4 rounded-[28px] border border-slate-200 bg-slate-50 p-6">
-                  <div className="flex items-center gap-4 rounded-3xl bg-white p-5 shadow-sm">
-                    <BookOpen className="h-7 w-7 text-gold" />
-                    <div>
-                      <p className="text-sm text-slate-500">Personalized treatment plans</p>
-                      <p className="font-semibold text-slate-900">Tailored for your skin goals</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 rounded-3xl bg-white p-5 shadow-sm">
-                    <Stethoscope className="h-7 w-7 text-gold" />
-                    <div>
-                      <p className="text-sm text-slate-500">Expert dermatology team</p>
-                      <p className="font-semibold text-slate-900">Medical care with premium comfort</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link href="/book-appointment" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-slate-800">
+                Book Appointment
+              </Link>
+              <Link href="https://wa.me/917447681111" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/85 px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm backdrop-blur-sm transition hover:border-gold">
+                WhatsApp Consultation
+              </Link>
+            </div>
+          </div>
+          <div className="mt-12 flex gap-3" aria-label="Hero slides">
+            {heroImages.map((image, index) => (
+              <button
+                key={image}
+                type="button"
+                aria-label={`Show slide ${index + 1}`}
+                aria-pressed={activeHero === index}
+                onClick={() => setActiveHero(index)}
+                className={`h-2.5 w-10 rounded-full transition ${activeHero === index ? 'bg-slate-900' : 'bg-slate-900/25 hover:bg-slate-900/50'}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -144,16 +155,16 @@ export default function HomePage() {
             <p className="max-w-xl text-base leading-8 text-slate-600">B.A.M.S, PGDFC, FFAC - Fellowship in Facial Aesthetics & Clinical Cosmetology. Specialized dermatologist with expertise in advanced clinical care and aesthetic treatments.</p>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-3xl bg-slate-50 p-5 text-center">
-                <p className="text-lg font-semibold text-slate-900">18+</p>
+                <p className="text-lg font-semibold text-slate-900">10+</p>
                 <p className="mt-1 text-sm text-slate-500">Years experience</p>
               </div>
               <div className="rounded-3xl bg-slate-50 p-5 text-center">
-                <p className="text-lg font-semibold text-slate-900">10k+</p>
+                <p className="text-lg font-semibold text-slate-900">6,500+</p>
                 <p className="mt-1 text-sm text-slate-500">Treatments delivered</p>
               </div>
               <div className="rounded-3xl bg-slate-50 p-5 text-center">
-                <p className="text-lg font-semibold text-slate-900">Board certified</p>
-                <p className="mt-1 text-sm text-slate-500">Dermatology</p>
+                <p className="text-lg font-semibold text-slate-900">Cosmetology</p>
+                <p className="mt-1 text-sm text-slate-500">Derma care</p>
               </div>
             </div>
             <Link href="/doctors" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-slate-800">
@@ -201,7 +212,9 @@ export default function HomePage() {
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {previewImages.map((item) => (
                 <div key={item.label} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                  <div className="aspect-[4/3] bg-cover bg-center" style={{ backgroundImage: `url(${item.src})` }} />
+                  <div className="aspect-[4/3] bg-slate-100">
+                    <img src={item.src} alt={item.label} className="h-full w-full object-contain" />
+                  </div>
                   <div className="p-5">
                     <p className="font-semibold text-slate-900">{item.label}</p>
                     <p className="mt-2 text-sm text-slate-500">Clinical image illustrating improvements after tailored care.</p>
@@ -215,11 +228,11 @@ export default function HomePage() {
               <p className="text-sm uppercase tracking-[0.3em] text-gold">Client praise</p>
               <div className="space-y-4 rounded-3xl bg-slate-800/95 p-6">
                 <p className="text-2xl font-semibold">"Healing Clinic elevated my treatment experience. Results were visible, and every step felt professional and caring."</p>
-                <p className="text-sm text-slate-300">- Maya R., Acne Treatment Client</p>
+                <p className="text-sm text-slate-300">- Swapnil B., Acne Treatment Client</p>
               </div>
               <div className="space-y-4 rounded-3xl bg-slate-800/95 p-6">
                 <p className="text-2xl font-semibold">"Hair restoration was smooth and professional. The team guided me with clarity and confidence."</p>
-                <p className="text-sm text-slate-300">- Noah K., PRP & Hair Transplant Client</p>
+                <p className="text-sm text-slate-300">- Nutan G., PRP & Hair Growth Client</p>
               </div>
             </div>
           </div>
@@ -256,7 +269,7 @@ export default function HomePage() {
           <div className="rounded-[32px] bg-white p-10 shadow-soft sm:flex sm:items-center sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-gold">Ready for premium care?</p>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-950 sm:text-4xl">Start your consultation with Dermacare Elite</h2>
+              <h2 className="mt-4 text-3xl font-semibold text-slate-950 sm:text-4xl">Start your consultation with Healing Clinic</h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">Book a specialized appointment or reach out through WhatsApp for fast guidance from our dermatology experts.</p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:mt-0 sm:flex-row">

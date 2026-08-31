@@ -14,9 +14,9 @@ export default function AcneTreatmentPage() {
           <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.3em] text-gold">Acne Treatment</p>
             <h1 className="text-4xl font-semibold text-slate-950 sm:text-5xl">Clinical acne solutions with gentle, lasting results.</h1>
-            <p className="max-w-3xl text-base leading-8 text-slate-600">Dermacare Elite delivers medically guided acne care to reduce inflammation, restore clarity, and protect your skin from future breakout cycles.</p>
+            <p className="max-w-3xl text-base leading-8 text-slate-600">Healing Clinic delivers medically guided acne care to reduce inflammation, restore clarity, and protect your skin from future breakout cycles.</p>
           </div>
-          <div className="rounded-[32px] bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center p-10 shadow-glow" style={{ minHeight: 420 }} />
+          <div className="rounded-[32px] bg-[url('/images/treatments/acne-treatment/acne-treatment.png')] bg-cover bg-center p-10 shadow-glow" style={{ minHeight: 420 }} />
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">

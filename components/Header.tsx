@@ -7,7 +7,7 @@ import { Phone, MessageSquare, Menu, X } from 'lucide-react';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/treatments/acne-treatment', label: 'Treatments' },
+  { href: '/treatments', label: 'Treatments' },
   { href: '/doctors', label: 'Doctors' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/testimonials', label: 'Testimonials' },
@@ -25,7 +25,7 @@ export function Header() {
           <img src="/logo.png" alt="Healing Clinic" className="h-11 w-11 shrink-0 rounded-full object-cover" />
           <div>
             <p className="text-sm uppercase tracking-[0.22em] text-slate-500">Healing Clinic</p>
-            <p className="text-base font-semibold">Dermatology & Aesthetics</p>
+            <p className="text-base font-semibold">Cosmetology & Aesthetics</p>
           </div>
         </Link>
 

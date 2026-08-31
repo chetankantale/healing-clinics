@@ -22,7 +22,7 @@ const WHATSAPP_NUMBER = '917447681111';
 const treatments = [
   'Acne Treatment',
   'Pigmentation Treatment',
-  'Hair Transplant',
+  'Hair Growth Treatment',
   'PRP Therapy',
   'Laser Hair Removal',
   'Anti Aging',

@@ -3,7 +3,7 @@ import { SocialIcon } from './SocialIcon';
 
 const footerLinks = [
   { href: '/about', label: 'About' },
-  { href: '/treatments/acne-treatment', label: 'Treatments' },
+  { href: '/treatments', label: 'Treatments' },
   { href: '/doctors', label: 'Doctors' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/blog', label: 'Blog' },
