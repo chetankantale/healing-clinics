@@ -191,7 +191,7 @@ export const galleryItems = [
 ];
 
 export const testimonials = [
-  { name: 'Maya R.', role: 'Acne Treatment Client', quote: 'The clinic delivered thoughtful care and visible results. My skin feels clearer and more confident than ever.', rating: 5 },
-  { name: 'Noah K.', role: 'Hair Restoration Client', quote: 'My hair journey was supported with precision and empathy. The results exceeded my expectations.', rating: 5 },
-  { name: 'Avery S.', role: 'Pigmentation Client', quote: 'I appreciated the detailed consultation and gentle treatment. My complexion has never looked brighter.', rating: 5 }
+  { name: 'Akash R.', role: 'Acne Treatment Client', quote: 'The clinic delivered thoughtful care and visible results. My skin feels clearer and more confident than ever.', rating: 5 },
+  { name: 'Nutan G.', role: 'Hair Restoration Client', quote: 'My hair journey was supported with precision and empathy. The results exceeded my expectations.', rating: 5 },
+  { name: 'Priyanka D.', role: 'Pigmentation Client', quote: 'I appreciated the detailed consultation and gentle treatment. My complexion has never looked brighter.', rating: 5 }
 ];
